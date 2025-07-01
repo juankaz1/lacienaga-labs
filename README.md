@@ -47,7 +47,7 @@ Brindamos servicios de sensores y toma de datos para entornos rurales y urbanos,
 
 1. Clona este repositorio:
 ```bash
-git clone https://github.com/[tu-usuario]/lacienaga-labs.git
+git clone https://github.com/juankaz1/lacienaga-labs.git
 ```
 
 2. Navega al directorio del proyecto:
@@ -89,8 +89,9 @@ Este proyecto está bajo la licencia MIT. Ver el archivo `LICENSE` para más det
 ## Contacto
 
 **La Ciénaga Labs**
-- Sitio web: [lacienaga-labs.github.io](https://lacienaga-labs.github.io)
-- Email: [contacto@lacienagalabs.com](mailto:contacto@lacienagalabs.com)
+- Sitio web: [lacienagalabs.com](https://lacienagalabs.com)
+- Email: [afdiaz@lacienagalabs.com](mailto:afdiaz@lacienagalabs.com)
+- GitHub: [github.com/juankaz1](https://github.com/juankaz1)
 
 ---
 
