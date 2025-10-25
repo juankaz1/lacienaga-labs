@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Cienaga Labs | Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+        // Custom Tailwind CSS configuration to include your color palette
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-purple-dark': '#6b00b4',
+                        'brand-purple-light': '#8100b2',
+                        'brand-lime': '#bceb00',
+                        'brand-green': '#7db200',
+                        'brand-gray': '#808083',
+                        'brand-dark': '#121212' // Using black as the base background
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000; /* Black background */
+            color: #e5e7eb;
+        }
+
+        #animation-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        /* Smooth scrolling behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Styling for the 3D model container */
+        #model-container {
+            width: 100%;
+            height: 400px; /* Adjust height as needed */
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 0.5rem;
+            cursor: grab;
+        }
+        
+        .section-title {
+            font-size: 2.25rem; /* 36px */
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem; /* 18px */
+            color: #9ca3af; /* text-gray-400 */
+            max-width: 48rem; /* max-w-3xl */
+            margin: 0 auto 3rem auto;
+        }
+        
+        /* Video Modal Styles */
+        .modal {
+            transition: opacity 0.25s ease;
+        }
+        .modal-content {
+            transition: transform 0.25s ease;
+        }
+
+    </style>
+</head>
+<body class="text-gray-200">
+
+    <canvas id="animation-background"></canvas>
+
+    <header class="border-b border-gray-800">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <img src="IsotipoNegro (1).jpg" alt="La Cienaga Labs Logo" class="h-12 w-12 object-cover rounded-full">
+                <a href="#" class="text-2xl font-bold text-white hover:text-brand-lime transition-colors duration-300">La Cienaga Labs</a>
+            </div>
+
+            <ul class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                <li><a href="#research" class="hover:text-brand-lime transition-colors duration-300">Research Topics</a></li>
+                <li><a href="#people" class="hover:text-brand-lime transition-colors duration-300">People</a></li>
+                <li><a href="#" class="hover:text-brand-lime transition-colors duration-300">Publications</a></li>
+                <li><a href="#" class="hover:text-brand-lime transition-colors duration-300">Stations</a></li>
+                <li><a href="#" class="hover:text-brand-lime transition-colors duration-300">Bootcamps</a></li>
+                <li><a href="#contact" class="bg-brand-purple-dark hover:bg-brand-purple-light text-white font-semibold py-2 px-4 rounded-md transition-colors duration-300">Contact Us</a></li>
+            </ul>
+            
+            <div class="md:hidden">
+                <button class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="container mx-auto px-6 h-[calc(100vh-76px)] flex flex-col justify-center items-center text-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight">
+                Pioneering Eco-Systemic Insights
+            </h1>
+            <p class="mt-4 text-lg md:text-xl text-gray-400 max-w-3xl">
+                Integrating genomics, ecology, and community science to address complex environmental challenges at the intersection of nature and society.
+            </p>
+            <div class="mt-8">
+                <a href="#research" class="bg-brand-purple-dark hover:bg-brand-purple-light text-white font-semibold py-3 px-6 rounded-md transition-colors duration-300 text-lg">
+                    Discover Our Work
+                </a>
+            </div>
+        </section>
+
+        <!-- Section 1: Our Research -->
+        <section id="research" class="py-20 bg-black">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="section-title">Our Research</h2>
+                <p class="section-subtitle">We utilize cutting-edge technology to visualize and understand complex ecological data. This interactive model demonstrates a core aspect of our spatial analysis.</p>
+                <div class="max-w-4xl mx-auto">
+                    <div id="model-container"></div>
+                    <p class="text-xs text-gray-500 mt-2">Webmaster: To add a new model, replace the placeholder file path in the JavaScript section below with your own `.gltf` or `.glb` file URL.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Areas of Influence -->
+        <section id="influence" class="py-20 bg-brand-dark">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="section-title">Areas of Influence</h2>
+                <p class="section-subtitle">Our research is structured around three interconnected pillars that address critical environmental and social challenges.</p>
+                <div class="grid md:grid-cols-3 gap-12 mt-12">
+                    <!-- Pathogens -->
+                    <div class="flex flex-col items-center p-6 bg-gray-900 rounded-lg">
+                        <img src="LogoPatogenos.png" alt="Pathogens Logo" class="h-24 w-24">
+                        <h3 class="text-2xl font-bold mt-4 text-brand-lime">Pathogens</h3>
+                        <p class="text-gray-400 mt-2">Investigating the ecological drivers of disease transmission and developing strategies for mitigation.</p>
+                        <div class="mt-6 w-full h-48 bg-black rounded-md flex items-center justify-center text-gray-500">
+                             <!-- To embed a video, replace this div with an iframe from YouTube/Vimeo -->
+                             <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"></path></svg>
+                        </div>
+                    </div>
+                    <!-- Ecology -->
+                    <div class="flex flex-col items-center p-6 bg-gray-900 rounded-lg">
+                        <img src="LogoEcología.png" alt="Ecology Logo" class="h-24 w-24">
+                        <h3 class="text-2xl font-bold mt-4 text-brand-lime">Ecology</h3>
+                        <p class="text-gray-400 mt-2">Modeling biodiversity and ecosystem functions to predict environmental change and inform conservation.</p>
+                         <div class="mt-6 w-full h-48 bg-black rounded-md flex items-center justify-center text-gray-500">
+                             <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"></path></svg>
+                        </div>
+                    </div>
+                    <!-- Communities -->
+                    <div class="flex flex-col items-center p-6 bg-gray-900 rounded-lg">
+                        <img src="LogoComunidades.png" alt="Communities Logo" class="h-24 w-24">
+                        <h3 class="text-2xl font-bold mt-4 text-brand-lime">Communities</h3>
+                        <p class="text-gray-400 mt-2">Engaging with local communities through citizen science and co-creation of knowledge.</p>
+                         <div class="mt-6 w-full h-48 bg-black rounded-md flex items-center justify-center text-gray-500">
+                             <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"></path></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: People and Contact (REVISED) -->
+        <section id="people" class="py-20 bg-black">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <h2 class="section-title">Our Team</h2>
+                    <p class="section-subtitle">Meet the interdisciplinary researchers and scientists driving our mission forward.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-12">
+                    <!-- Team Member Card 1 -->
+                    <div class="text-center">
+                        <img class="w-32 h-32 mx-auto rounded-full object-cover" src="https://placehold.co/200x200/808083/FFFFFF?text=Team" alt="Team Member Photo">
+                        <h4 class="mt-4 text-lg font-bold text-white">Dr. Evelyn Reed</h4>
+                        <p class="text-sm text-brand-lime">Principal Investigator</p>
+                        <div class="flex justify-center items-center space-x-4 mt-2">
+                            <a href="evelyn-reed-bio.html" class="text-xs text-gray-400 hover:text-brand-lime hover:underline transition-colors">View Full Bio</a>
+                            <button data-video-src="https://www.youtube.com/embed/dQw4w9WgXcQ" class="open-modal-btn text-brand-gray hover:text-white transition-colors">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+                            </button>
+                        </div>
+                        <p class="text-xs text-gray-400 mt-2">Specializes in eco-evolutionary dynamics and spatial modeling.</p>
+                    </div>
+                    <!-- Team Member Card 2 -->
+                    <div class="text-center">
+                        <img class="w-32 h-32 mx-auto rounded-full object-cover" src="https://placehold.co/200x200/808083/FFFFFF?text=Team" alt="Team Member Photo">
+                        <h4 class="mt-4 text-lg font-bold text-white">Dr. Kenji Tanaka</h4>
+                        <p class="text-sm text-brand-lime">Lead Data Scientist</p>
+                        <div class="flex justify-center items-center space-x-4 mt-2">
+                            <a href="kenji-tanaka-bio.html" class="text-xs text-gray-400 hover:text-brand-lime hover:underline transition-colors">View Full Bio</a>
+                            <button data-video-src="https://www.youtube.com/embed/another-video-id" class="open-modal-btn text-brand-gray hover:text-white transition-colors">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+                            </button>
+                        </div>
+                        <p class="text-xs text-gray-400 mt-2">Focuses on machine learning applications for genomic data.</p>
+                    </div>
+                    <!-- Team Member Card 3 -->
+                    <div class="text-center">
+                        <img class="w-32 h-32 mx-auto rounded-full object-cover" src="https://placehold.co/200x200/808083/FFFFFF?text=Team" alt="Team Member Photo">
+                        <h4 class="mt-4 text-lg font-bold text-white">Maria Flores</h4>
+                        <p class="text-sm text-brand-lime">Community Outreach Lead</p>
+                        <div class="flex justify-center items-center space-x-4 mt-2">
+                            <a href="maria-flores-bio.html" class="text-xs text-gray-400 hover:text-brand-lime hover:underline transition-colors">View Full Bio</a>
+                            <button data-video-src="https://www.youtube.com/embed/yet-another-id" class="open-modal-btn text-brand-gray hover:text-white transition-colors">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+                            </button>
+                        </div>
+                        <p class="text-xs text-gray-400 mt-2">Manages citizen science projects and local partnerships.</p>
+                    </div>
+                    <!-- Team Member Card 4 -->
+                    <div class="text-center">
+                        <img class="w-32 h-32 mx-auto rounded-full object-cover" src="https://placehold.co/200x200/808083/FFFFFF?text=Team" alt="Team Member Photo">
+                        <h4 class="mt-4 text-lg font-bold text-white">Leo Chen</h4>
+                        <p class="text-sm text-brand-lime">PhD Candidate</p>
+                        <div class="flex justify-center items-center space-x-4 mt-2">
+                            <a href="leo-chen-bio.html" class="text-xs text-gray-400 hover:text-brand-lime hover:underline transition-colors">View Full Bio</a>
+                            <button data-video-src="https://www.youtube.com/embed/final-video-id" class="open-modal-btn text-brand-gray hover:text-white transition-colors">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+                            </button>
+                        </div>
+                        <p class="text-xs text-gray-400 mt-2">Researching pathogen spillover events in fragmented landscapes.</p>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div id="contact" class="max-w-3xl mx-auto mt-20 pt-10 border-t border-gray-800">
+                     <h3 class="text-3xl font-bold text-center text-white">Contact Us</h3>
+                     <p class="text-center text-gray-400 mt-2 mb-8">Have a question or want to collaborate? Reach out to us.</p>
+                     <form>
+                         <div class="grid md:grid-cols-2 gap-6">
+                             <input type="text" placeholder="Your Name" class="w-full bg-gray-900 text-white p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-purple-light">
+                             <input type="email" placeholder="Your Email" class="w-full bg-gray-900 text-white p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-purple-light">
+                         </div>
+                         <div class="mt-6">
+                             <textarea placeholder="Your Message" rows="5" class="w-full bg-gray-900 text-white p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-purple-light"></textarea>
+                         </div>
+                         <div class="text-center mt-6">
+                            <button type="submit" class="bg-brand-purple-dark hover:bg-brand-purple-light text-white font-semibold py-3 px-8 rounded-md transition-colors duration-300">Send Message</button>
+                         </div>
+                     </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Video Modal Structure -->
+    <div id="video-modal" class="modal fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 opacity-0 pointer-events-none">
+        <div class="modal-content bg-brand-dark p-2 rounded-lg relative w-full max-w-3xl transform scale-95">
+            <button id="close-modal-btn" class="absolute -top-4 -right-4 text-white bg-brand-purple-dark rounded-full h-10 w-10 flex items-center justify-center text-2xl font-bold">&times;</button>
+            <div class="aspect-w-16 aspect-h-9 bg-black">
+                 <!-- Webmaster: The video source will be injected here by JavaScript. -->
+                <iframe id="video-iframe" class="w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JavaScript for Animated Background, 3D Model, and Video Modal -->
+    <script type="importmap">
+        { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/" } }
+    </script>
+    <script type="module">
+        // --- VIDEO MODAL SCRIPT ---
+        const videoModal = document.getElementById('video-modal');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const videoIframe = document.getElementById('video-iframe');
+        const openModalBtns = document.querySelectorAll('.open-modal-btn');
+
+        openModalBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const videoSrc = btn.getAttribute('data-video-src');
+                // Webmaster: Make sure the URL is the "embed" version (e.g., from YouTube's share > embed option)
+                videoIframe.src = videoSrc;
+                videoModal.classList.remove('opacity-0', 'pointer-events-none');
+            });
+        });
+
+        const closeModal = () => {
+            videoIframe.src = ""; // Stop the video from playing
+            videoModal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        closeModalBtn.addEventListener('click', closeModal);
+        videoModal.addEventListener('click', (e) => {
+             // Close modal if the background overlay is clicked, but not the content inside
+            if (e.target === videoModal) {
+                closeModal();
+            }
+        });
+
+        // --- 3D MODEL SCRIPT ---
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+        // Webmaster: To load your own model, you would also import GLTFLoader:
+        // import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+        const modelContainer = document.getElementById('model-container');
+        if (modelContainer) {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, modelContainer.clientWidth / modelContainer.clientHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(modelContainer.clientWidth, modelContainer.clientHeight);
+            modelContainer.appendChild(renderer.domElement);
+
+            const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
+            const material = new THREE.MeshStandardMaterial({ color: 0xbceb00, wireframe: true });
+            const model = new THREE.Mesh(geometry, material);
+            scene.add(model);
+            
+            const light = new THREE.DirectionalLight(0xffffff, 2);
+            light.position.set(1, 1, 1);
+            scene.add(light);
+            const ambient = new THREE.AmbientLight(0x8100b2, 1);
+            scene.add(ambient);
+            
+            camera.position.z = 40;
+
+            const controls = new OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.enableZoom = false;
+            controls.autoRotate = true;
+            controls.autoRotateSpeed = 0.5;
+
+            function animateModel() {
+                requestAnimationFrame(animateModel);
+                controls.update();
+                renderer.render(scene, camera);
+            }
+            animateModel();
+            
+            window.addEventListener('resize', () => {
+                camera.aspect = modelContainer.clientWidth / modelContainer.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(modelContainer.clientWidth, modelContainer.clientHeight);
+            });
+        }
+
+
+        // --- BACKGROUND PARTICLE SCRIPT ---
+        const canvas = document.getElementById('animation-background');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        let particlesArray;
+
+        class Particle {
+            constructor(x, y, dirX, dirY, size) {
+                this.x = x; this.y = y; this.directionX = dirX; this.directionY = dirY; this.size = size;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                ctx.fillStyle = 'rgba(128, 128, 131, 0.2)'; // Faint brand-gray
+                ctx.fill();
+            }
+            update() {
+                if (this.x > canvas.width || this.x < 0) this.directionX = -this.directionX;
+                if (this.y > canvas.height || this.y < 0) this.directionY = -this.directionY;
+                this.x += this.directionX; this.y += this.directionY;
+                this.draw();
+            }
+        }
+
+        function init() {
+            particlesArray = [];
+            let numParticles = (canvas.height * canvas.width) / 12000;
+            for (let i = 0; i < numParticles; i++) {
+                let size = (Math.random() * 1.5) + 1;
+                let x = Math.random() * canvas.width;
+                let y = Math.random() * canvas.height;
+                let dirX = (Math.random() * .4) - .2;
+                let dirY = (Math.random() * .4) - .2;
+                particlesArray.push(new Particle(x, y, dirX, dirY, size));
+            }
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) particlesArray[i].update();
+            connect();
+        }
+
+        function connect() {
+            let opacityValue = 1;
+            for (let a = 0; a < particlesArray.length; a++) {
+                for (let b = a; b < particlesArray.length; b++) {
+                    let distance = Math.sqrt((particlesArray[a].x - particlesArray[b].x)**2 + (particlesArray[a].y - particlesArray[b].y)**2);
+                    if (distance < (canvas.width / 8)) {
+                        opacityValue = 1 - (distance / (canvas.width / 8));
+                        ctx.strokeStyle = `rgba(128, 128, 131, ${opacityValue * 0.3})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+        
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            init();
+        });
+
+        init();
+        animate();
+    </script>
+</body>
+</html>
+

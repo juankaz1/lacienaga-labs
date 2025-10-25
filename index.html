@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <!-- Plotly Library -->
+    <script src="https://cdn.plot.ly/plotly-2.11.1.min.js"></script>
 </head>
 <body>
     <!-- Header Navigation -->
@@ -56,6 +58,36 @@
                     <img src="Patrón1.png" alt="Patrón decorativo" class="pattern pattern-1">
                     <img src="Patrón2.png" alt="Patrón decorativo" class="pattern pattern-2">
                     <img src="IsotipoColor.png" alt="Isotipo La Cienaga" class="hero-logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workshop Banner Section -->
+    <section class="workshop-banner">
+        <div class="container">
+            <div class="workshop-content">
+                <div class="workshop-image">
+                    <img src="Ecology of Neotropical Viruses.png" alt="Ecology of Neotropical Viruses Workshop 2026" class="workshop-poster">
+                </div>
+                <div class="workshop-info">
+                    <h2 class="workshop-title">Ecology of Neotropical Viruses Workshop 2026</h2>
+                    <p class="workshop-description">
+                        Embárcate en una expedición científica sin precedentes al Neotrópico para descubrir el profundo impacto de los deltaretrovirus en la evolución de los vertebrados, con énfasis en la biología única de murciélagos y marsupiales.
+                    </p>
+                    <div class="workshop-details">
+                        <div class="workshop-mode">
+                            <h3>Sesiones Online</h3>
+                            <p>Noviembre 2025 - Febrero 2026<br>50 EUR</p>
+                        </div>
+                        <div class="workshop-mode">
+                            <h3>Sesiones Presenciales</h3>
+                            <p>Febrero 10-30, 2026<br>1250 EUR</p>
+                        </div>
+                    </div>
+                    <a href="https://forms.gle/EJakrv2EvWkkchgr6" target="_blank" rel="noopener noreferrer" class="btn btn-workshop">
+                        Inscribirse al Workshop
+                    </a>
                 </div>
             </div>
         </div>
@@ -182,6 +214,12 @@
                 <div class="trust-image">
                     <img src="siluetarojacampo.JPG" alt="Trabajo de campo">
                 </div>
+                <div class="trust-visualization">
+                    <p style="text-align: center; margin-bottom: 1.5rem; line-height: 1.8;">
+                        Utilizamos tecnología de punta para visualizar y comprender datos ecológicos complejos. Este modelo interactivo demuestra un aspecto central de nuestro análisis espacial.
+                    </p>
+                    <div id="plotly-container" style="width: 100%; height: 450px; background-color: rgba(255, 255, 255, 0.1); border-radius: 15px; overflow: hidden;"></div>
+                </div>
             </div>
 
             <!-- Team Grid -->
@@ -273,5 +311,24 @@
     </footer>
 
     <script src="script.js"></script>
+    
+    <!-- Plotly Visualization Script -->
+    <script>
+        // Load the interactive Plotly visualization from viewhtmlfa1434e31734
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create an iframe to embed the external plotly visualization
+            var container = document.getElementById('plotly-container');
+            if (container) {
+                var iframe = document.createElement('iframe');
+                iframe.src = 'viewhtmlfa1434e31734/index.html';
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+                iframe.style.border = 'none';
+                iframe.style.borderRadius = '15px';
+                iframe.scrolling = 'no';
+                container.appendChild(iframe);
+            }
+        });
+    </script>
 </body>
 </html> 
