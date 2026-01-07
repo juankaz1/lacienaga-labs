@@ -1,0 +1,29 @@
+Fig1 
+
+Illustration of a C. elegans roundworm and reversible P granule dissolution upon heating. (A) We consider the response of micrometer-sized P granules in the one-cell stage of the C. elegans embryo against temperature changes to exemplify the role of thermodynamics for the formation and dissolution of protein condensates in a living organism. (B) P granules labeled via PGL-1::GFP (yellow-green dots) dissolve upon heating and reform when cooled again within a few minutes in embryos as well as in parts of the gonad. (Scale bars, 50 μm [Left] and 10 μm [Right].)
+
+
+Fig2
+
+P granule volumes respond to temperature oscillations and determine the global condensation temperature. (A) Five oscillations in temperature from 15 to 29 °C cause an in-phase oscillation of the total condensed volume of P granules, V_{in}
+ (see example embryo going through one cycle, n = 4; shaded area is SD). (Scale bar: 5 μm.) The notable increase of total condensed volume with the number of cycles is likely due to the progress of one-cell embryos from an early homogeneous to a later polarized state. (B) Mask used to extract the P granule volumes from the microscope images (for details on image analysis, see Materials and Methods and SI Appendix). (C) The condensation temperature T_{cond} is defined as the temperature where the total volume 
+V_{in} averaged over all embryos becomes zero. (C, Inset) We obtain a very similar value for condensation temperature when extracting T_{cond}
+ for each embryo and averaging over all considered embryos. (D) At 
+ T=20°C condensates contribute to approximately 1/1000
+ of the volume of an embryo (N, number of embryos per condition; error bars are SD). Around the dissolution temperature, the relative volume of P granule phase drops to values close to zero.
+
+
+Fig3
+
+In vivo phase diagrams and P granule condensation temperatures. (A) Illustration of the mask to determine the concentrations inside and outside the P granule condensates. To avoid the impact of the blurred condensate interface (due to point spread function and pinhole cross-talk) on the calculation of the outside concentrations, we omit a domain around the interface. We determine the concentrations inside and outside as averages over the respective domains inside and outside of the omitted regions. (Scale bar: 5 μm
+.) (B) Phase diagram for GFP-labeled PGL-1 with equilibrium concentration outside c_{out} (blue) and inside (yellow) separating demixed and mixed states. Concentrations are calculated from fluorescence intensities I via a temperature-corrected scaling factor between intensities and concentration (SI Appendix, Fig. S4). Number of embryos with P granules out of the total number of recorded embryos as well as the total number of P granules at each temperature are shown. Dashed line is a guide to the eye. (C) Similar phase diagram to that in B but for a worm line where PGL-3 was genetically deleted, which is referred to as \Delta pgl-3 (SI Appendix, Fig. S5). (D) Condensation temperature T_{cond} for different worm strains: The dissolution temperature of the wild type with the GFP label on the PGL-1 or PGL-3 protein is very similar. In contrast, in the case of the pgl-3 line, P granules already dissolve at approximately 6 °C lower temperature (gray dots represent T_{cond} of individual embryos).
+
+
+Fig4
+
+Model results for temperature-dependent phase separation. (A) Free energy density as a function of concentration for two different temperatures indicating that the equilibrium concentrations inside and outside approach each other for increasing temperature (Upper). This trend is also reflected in the phase diagram in which the binodal line separates the mixed and the demixed phase (Lower). (B) From the experimental in vivo phase diagrams (Fig. 3 B and C), we obtain via fitting the temperature-dependent interaction parameter X(T) (orange dots) and the molecular volume v(T) (blue dots) for each coexisting concentration pair of PGL-1 concentrations. We parameterize each function by linear functions jumping discontinuously at a temperature around 16 °C. (C and D) The experimental phase diagrams (diamond symbols) agree with the binodals corresponding to the parameterized discontinuous functions from B (dashed lines) and the global fits (solid line) accounting for a smoothed-out discontinuity (see SI Appendix, section B for details). Black circles represent the critical points.
+
+
+Fig5
+
+Condensation temperature T_{cond} as a function of PGL-3 concentration. (A) The theoretical prediction is based on a linear interpolation between the fits of the experimental phase diagram data (Fig. 4 C and D). While for the solid line we considered the average concentration of PGL-1, the shaded areas correspond to the lower and upper values of the SD (from in vivo fluorescent measurements of concentrations). Experimental data are derived from linear fits to the ensemble of P granule volumes (Fig. 2C) for WT, pgl-3 RNAi, and \Delta pgl-3 deletion. (B) Maximum projections for representative embryos at 25 °C for the data presented in A. All images use the same histogram adjustments. (Scale bar, 5 μm.)

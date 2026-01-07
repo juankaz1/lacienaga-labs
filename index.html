@@ -220,6 +220,37 @@
                     </p>
                     <div id="plotly-container" style="width: 100%; height: 450px; background-color: rgba(255, 255, 255, 0.1); border-radius: 15px; overflow: hidden;"></div>
                 </div>
+
+                <!-- Blog Section dentro del contenedor morado -->
+                <div class="blog-section-in-banner" id="blog-section-in-banner">
+                    <div class="blog-section-header">
+                        <h2 class="blog-section-title">Publicaciones Científicas</h2>
+                        <p class="blog-section-subtitle">
+                            Investigaciones y publicaciones de nuestro equipo multidisciplinario.
+                        </p>
+                    </div>
+
+                    <!-- Preview de 3 papers más recientes -->
+                    <div class="blog-preview" id="blog-preview">
+                        <div class="blog-preview-grid" id="blog-preview-grid">
+                            <!-- Papers se cargarán dinámicamente aquí -->
+                        </div>
+                        
+                        <!-- Botón Ver más -->
+                        <div class="blog-expand-container">
+                            <button class="btn btn-blog-expand blog-expand-btn" id="blog-expand-btn">
+                                Ver más publicaciones <span class="expand-icon">▼</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Sección expandida con todos los papers -->
+                    <div class="blog-full" id="blog-full" style="display: none;">
+                        <div class="blog-grid" id="blog-grid">
+                            <!-- Todos los papers se cargarán aquí -->
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Team Grid -->
@@ -311,6 +342,14 @@
     </footer>
 
     <script src="script.js"></script>
+    <!-- Supabase Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Supabase Config (create `supabase-config.js` from `supabase-config.example.js`) -->
+    <script src="supabase-config.js"></script>
+    <!-- Load Paper Images -->
+    <script src="load-paper-images.js"></script>
+    <!-- Blog Script -->
+    <script src="blog.js"></script>
     
     <!-- Plotly Visualization Script -->
     <script>
